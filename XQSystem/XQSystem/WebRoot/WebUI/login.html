@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>登陆</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-image: url(login/loginbg.jpg);
+	background-repeat: repeat-x;
+}
+-->
+</style>
+<script type="text/javascript" src="js/jquery-1.4.js"></script>
+<script type="text/javascript" src="login/refresh.js"></script>
+<!-- 回车换行 -->
+<script language="javascript" for="document" event="onkeydown">
+
+if(event.keyCode==13 && event.srcElement.type!='button' && event.srcElement.type!='submit' && event.srcElement.type!='reset' && event.srcElement.type!='textarea' && event.srcElement.type!='')
+
+event.keyCode=9; //Tab的键值为9 Enter的键值为13
+
+</script>
+<script type="text/javascript" src="js/login.js"></script>
+</head>
+<body bgcolor="#FFFFFF"
+	onLoad="MM_preloadImages('login/login000_06.jpg','login/loging000_07.jpg')">
+	<!-- Save for Web Slices (待切.psd) -->
+	<table width="795" height="475" border="0" align="center"
+		cellpadding="0" cellspacing="0" id="__01">
+		<tr>
+			<td colspan="5"><img src="login/login_01.jpg" width="795"
+				height="159" alt=""></td>
+		</tr>
+		<tr>
+			<td rowspan="2"><img src="login/login_02.jpg" width="269"
+				height="174" alt=""></td>
+			<td bgcolor="#CFE5F2"><img src="login/login_03.jpg" width="66"
+				height="115" alt=""></td>
+			<td colspan="2" bgcolor="#D0E6F3"><table width="100%"
+					height="116" border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td colspan="2" align="left" valign="bottom"><INPUT
+							NAME="LoginName" TYPE="text" CLASS="STYLE1"
+							STYLE="width: 180px; height: 17px; border: #336699 1px solid"
+							tabindex="1" MAXLENGTH="26" id="username"></td>
+					</tr>
+					<tr>
+						<td height="32" colspan="2" align="left" valign="bottom"><INPUT
+							NAME="LoginName" TYPE="password" CLASS="STYLE1"
+							STYLE="width: 180px; height: 17px; border: #336699 1px solid"
+							tabindex="1" MAXLENGTH="26" id="password"></td>
+					</tr>
+					<tr>
+						<td width="50%" height="29" align="left" valign="bottom"><INPUT
+							NAME="LoginName" TYPE="text" CLASS="STYLE1"
+							STYLE="width: 100px; height: 17px; border: #336699 1px solid"
+							tabindex="1" MAXLENGTH="26" id="randcode"></td>
+						<td width="50%" align="left" valign="bottom"><img
+							src="login/randCode.jsp" id='shuaxin' width="50" height="25">
+					</td>
+					</tr>
+					<tr>
+						<td height="30" colspan="1" align="left" valign="bottom">&nbsp;</td>
+					</tr>
+				</table></td>
+			<td rowspan="2"><img src="login/login_05.jpg" width="262"
+				height="174" alt=""></td>
+		</tr>
+		<tr>
+			<td colspan="2"><a href="#" onMouseOut="MM_swapImgRestore()"
+				onMouseOver="MM_swapImage('Image12','','login/loging000_06.jpg',1)"><img
+					src="login/login_06.jpg" name="Image12" width="135" height="59"
+					border="0" onClick="IMG1_onclick2()"></a></td>
+			<td><a href="#" onMouseOut="MM_swapImgRestore()"
+				onMouseOver="MM_swapImage('Image13','','login/loging000_08.png',1)"><img
+					src="login/login_09.png" name="Image13" width="129" height="59"
+					border="0" onClick="window.location='register.html'"></a></td>
+		</tr>
+		<tr>
+			<td colspan="5"><img src="login/login_08.jpg" alt="" width="795"
+				height="141" border="0" usemap="#Map"></td>
+		</tr>
+		<tr>
+			<td><img src="login/&#x5206;&#x9694;&#x7b26;.gif" width="269"
+				height="1" alt=""></td>
+			<td><img src="login/&#x5206;&#x9694;&#x7b26;.gif" width="66"
+				height="1" alt=""></td>
+			<td><img src="login/&#x5206;&#x9694;&#x7b26;.gif" width="69"
+				height="1" alt=""></td>
+			<td><img src="login/&#x5206;&#x9694;&#x7b26;.gif" width="129"
+				height="1" alt=""></td>
+			<td><img src="login/&#x5206;&#x9694;&#x7b26;.gif" width="262"
+				height="1" alt=""></td>
+		</tr>
+		<tr>
+		   <td colspan="5" align="center">
+	          <a href="download/Browser.zip">浏览器兼容问题说明</a>
+	       </td>
+	    </tr>
+	</table>
+	<!-- End Save for Web Slices -->
+
+<map name="Map"><area shape="rect" coords="484,16,558,34" href="#"  onclick="test()" target="_self">
+</map></body>
+</html>

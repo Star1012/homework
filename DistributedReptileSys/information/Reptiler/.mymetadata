@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="Reptiler"
+  id="myeclipse.1497235876341"
+  context-root="/Reptiler"
+  j2ee-spec="6.0"
+  archive="Reptiler.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

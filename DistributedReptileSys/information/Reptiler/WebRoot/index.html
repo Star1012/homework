@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Home</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- VENDOR CSS -->
+	<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
+	<link rel="stylesheet" href="assets/vendor/chartist/css/chartist-custom.css">
+	<!-- MAIN CSS -->
+	<link rel="stylesheet" href="assets/css/main.css">
+	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+	<link rel="stylesheet" href="assets/css/demo.css">
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<!-- ICONS -->
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
+	<script src="assets/scripts/echarts.min.js"></script>
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<!-- NAVBAR -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="brand">
+				<a href="index.html"><img src="assets/img/logo.png" alt="Klorofil Logo" class="img-responsive logo"></a>
+			</div>
+			<div class="container-fluid">
+				<div class="navbar-btn">
+					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+				</div>
+				<form class="navbar-form navbar-left">
+					<div class="input-group">
+					</div>
+				</form>
+				<div class="navbar-btn navbar-btn-right">
+					
+				</div>
+				<div id="navbar-menu">
+					<h1>Reptiler免费爬虫平台</h1>
+				</div>
+			</div>
+		</nav>
+		<!-- END NAVBAR -->
+		<!-- LEFT SIDEBAR -->
+		<div id="sidebar-nav" class="sidebar">
+			<div class="sidebar-scroll">
+				<nav>
+					<ul class="nav">
+						<li><a href="#" class="active"><i class="lnr lnr-home"></i> <span>房产信息</span></a></li>
+						<li><a href="allgoods.html" class=""><i class="lnr lnr-cart"></i> <span>二手市场</span></a></li>
+						<li><a href="detail.html" class=""><i class="fa fa-line-chart"></i> <span>商品统计</span></a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<!-- END LEFT SIDEBAR -->
+		<!-- MAIN -->
+		<div class="main">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+				<div class="container-fluid">
+					<!-- OVERVIEW -->
+					<div class="panel panel-headline">
+						<div class="panel-heading">
+							<h3 class="panel-title">商铺类型</h3>
+						</div>
+						<div class="panel-body">
+							<div class="row" id="header">
+								
+							</div>
+							<div class="row">
+								<div class="col-md-9">
+									<div id="mapChart" style="width: 800px;height:815px;"></div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+					<!-- END OVERVIEW -->
+					<div class="row">
+						<div class="col-md-14">
+							<!-- RECENT PURCHASES -->
+							<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title">最新信息</h3>
+									<div class="right">
+										<button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+										<button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+									</div>
+								</div>
+								<div class="panel-body">
+									<table class="table table-striped">
+										<thead>
+											<tr>
+												<th>地段</th>
+												<th>联系人</th>
+												<th>面积</th>
+												<th>租金/售价</th>
+												<th>信誉度</th>
+											</tr>
+										</thead>
+										<tbody id="tbody">
+					
+										</tbody>
+									</table>
+									<table class="table table-striped">
+										<tr style="float:center;">
+											<td>
+												<a href="#" class="btn btn-default" onclick="refreshTable('first');">首页</a> 
+												<a href="#"class="btn btn-default" onclick="refreshTable('previous')">上一页</a>
+											</td>
+											<td>
+												<a href="#" class="btn btn-default" id="pagenum"></a>
+											</td>
+											<td>
+												<a href="" class="btn btn-default" onclick="refreshTable('jump')">跳转到</a>
+												<input type="text" id="page" name="page" width="5px"><a href="#" class="btn btn-default">页</a>
+											</td>
+											<td>
+												<a href="#" class="btn btn-default" id="c_num"></a>
+											</td>
+											<td>
+												<a href="#" class="btn btn-default" onclick="refreshTable('last')">尾页</a> 
+												<a href=""class="btn btn-default" onclick="refreshTable('next')">下一页</a>
+											</td>
+										</tr>
+									</table>
+								</div>
+								<div class="panel-footer">
+									<div class="row">
+										<div class="col-md-6"><span class="panel-note"><i class="fa fa-clock-o"></i>最近一天</span></div>
+									</div>
+								</div>
+							</div>
+							<!-- END RECENT PURCHASES -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- END MAIN CONTENT -->
+		</div>
+		<!-- END MAIN -->
+		<div class="clearfix"></div>
+		<footer>
+			<div class="container-fluid">
+				<p class="copyright">Copyright &copy; 2017.青青草原不吃羊</p>
+			</div>
+		</footer>
+	</div>
+	<!-- END WRAPPER -->
+	<!-- Javascript -->
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+	<script src="assets/vendor/jquery-cookie/jquery.cookie.js"></script>
+	<script src="assets/vendor/chartist/js/chartist.min.js"></script>
+	<script src="assets/scripts/klorofil-common.js"></script>
+	<script type="text/javascript">
+		//获取url
+		var url = $.cookie("url");
+		$.cookie("url",null);
+		if(url==''|| url=='null')
+		{
+			url = "getAreaDis?table=shangpudata2&page=1";
+		}
+		var page='1';    //当前初始化为1
+ 		var lcq='';     //栾城区
+ 		var zdx='';	   //正定县
+ 		var wjx='';	   //无极县
+ 		var jxx='';	   //井陉县
+ 		var lqq='';	   //鹿泉区
+ 		var scq='';	   //藁城区
+ 		var yhq='';	   //裕华区
+ 		var caq='';	   //长安区
+ 		var xhq='';	   //新华区
+ 		var qxq='';	   //桥西区
+ 		var jxkq='';   //井陉矿区
+ 		var ysx='';	   //元氏县
+ 		var zx='';     //赵县
+ 		var zhx='';    //赞皇县
+ 		var xls='';	   //新乐市
+ 		var szx='';	   //深泽县
+ 		var jzs='';    //晋州市
+ 		var xjs='';	   //辛集市
+        var xtx='';	   //行唐县
+        var lsx='';    //灵寿县
+        var psx='';	   //平山县
+        var gyx='';	   //高邑县
+        var min='';
+        var max='';
+        var content='';
+        var count='';
+        var pagenum='';
+        var tbody='';
+        var date = new Date();
+        var seperator = "-";
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var strDate = date.getDate();
+        if (month >= 1 && month <= 9) {
+            month = "0" + month;
+        }
+        if (strDate >= 0 && strDate <= 9) {
+            strDate = "0" + strDate;
+        }
+        var currentdate = year + seperator + month + seperator + strDate;
+     	$(document).ready(load);
+     		function load(){
+     		alert(url);
+     		$.ajax({
+     			type:"Post",
+     			async: false,
+             	url: url,
+                dataType: "json",
+             	success: function(json){
+             		$.each( json['area'], function(i,obj){
+             			lcq = obj.lcq!='undefined'?obj.lcq:0;
+             			zdx = obj.zdx!='undefined'?obj.zdx:0;
+             			wjx = obj.wjx!='undefined'?obj.wjx:0;
+             			jxx = obj.jxx!='undefined'?obj.jxx:0;	
+ 						lqq	= obj.lqq!='undefined'?obj.lqq:0;	   
+ 						scq = obj.scq!='undefined'?obj.scq:0;	  
+ 						yhq = obj.yhq!='undefined'?obj.yhq:0;
+ 						caq = obj.caq!='undefined'?obj.caq:0;
+ 						xhq = obj.xhq!='undefined'?obj.xhq:0;
+ 						qxq = obj.qxq!='undefined'?obj.qxq:0;
+ 						jxkq = obj.jxkq!='undefined'?obj.jxkq:0;
+ 						ysx = obj.ysx!='undefined'?obj.ysx:0;
+ 						zx = obj.zx!='undefined'?obj.zx:0; 
+ 						zhx = obj.zhx!='undefined'?obj.zhx:0;
+ 						xls = obj.xls!='undefined'?obj.xls:0;
+ 						szx = obj.szx!='undefined'?obj.szx:0;
+ 						jzs = obj.jzs!='undefined'?obj.jzs:0; 
+ 						xjs = obj.xjs!='undefined'?obj.xjs:0;
+        				xtx = obj.xtx!='undefined'?obj.xtx:0;	  
+        				lsx = obj.lsx!='undefined'?obj.lsx:0;    
+        				psx = obj.psx!='undefined'?obj.psx:0;
+        				gyx = obj.gyx!='undefined'?obj.gyx:0;
+        				min = obj.min!='undefined'?obj.min:0;
+        				max = obj.max!='undefined'?obj.max:0;	   
+             			
+             		});
+             		$.each( json['leixing'], function(i,n){
+             			var lx = n.lx!='undefined'?n.lx:0;
+             			var num = n.num!='undefined'?n.num:0;
+             			content = content+"<div class=\"col-md-3\"><div class=\"metric\"><span class=\"icon\"><i class=\"lnr lnr-home\"></i></span><p><span class=\"number\">"
+             			+num+"</span><span class=\"title\">"
+             			+lx+"</span></p></div></div>";	
+             		});
+             		$.each( json['spxx'], function(i,n){
+             			var url = n.url!='undefined'?n.url:0;
+             			var lj = n.lj!='undefined'?n.lj:0;
+             			var mj = n.mj!='undefined'?n.mj:0;
+             			var zj = n.zj!='undefined'?n.zj:0;
+             			var sj = n.sj!='undefined'?n.sj:0;
+             			var lxr = n.lxr!='undefined'?n.lxr:0;
+             			var xydj = n.xydj!='undefined'?n.xydj:0;
+             			page = n.page!='undefined'?n.page:0;
+             			count = n.count!='undefined'?n.count:0;
+             			tbody = tbody + "<tr><td><a href=\""+url+"\">"+lj+"</a></td>"
+             						  +"<td>"+lxr+"</td>"
+             						  +"<td>"+mj+"</td>"
+             						  +"<td>"+sj+zj+"</td>"
+             						  +"<td>";
+             			if(parseInt(xydj)>200)
+             			{
+             				tbody = tbody + "<span class=\"label label-success\">"+xydj+"</span></td></tr>";
+             			}
+             		    else if(100<parseInt(xydj)<=200)
+             		    {
+             		    	tbody = tbody + "<span class=\"label label-warning\">"+xydj+"</span></td></tr>";
+             		    }
+             		    else if(parseInt(xydj)<=100)
+             		    {
+             		    	tbody = tbody + "<span class=\"btn btn-danger\">"+xydj+"</span></td></tr>";
+             		    }
+             		   
+             		});
+             		pagenum = "<a>第"+page+"页</a>";
+             		countnum = "<a>共"+count+"页</a>";
+             		$("#header").append(content);
+             		$("#tbody").append(tbody);
+             		$("#pagenum").append(pagenum);
+             		$("#c_num").append(countnum);
+                },
+     			error: function(){
+     				alert('fail');
+     			}
+     		});
+     	}
+     </script>
+     <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var mapChart = echarts.init(document.getElementById('mapChart'));
+		
+ 		//myChart.showLoading();
+       
+       $.get('assets/data/SJZ.json', function (geoJson) {
+       
+ 
+       mapChart.hideLoading();
+
+       echarts.registerMap('SJZ', geoJson);
+
+       mapChart.setOption(option = {
+        title: {
+            text: '石家庄商铺区域分布('+currentdate+')',
+            //subtext: currentdate
+            //sublink: 'http://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E8%A1%8C%E6%94%BF%E5%8D%80%E5%8A%83#cite_note-12'
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: '{b}<br/>{c} (家)'
+        },
+        toolbox: {
+            show: true,
+            orient: 'vertical',
+            left: 'right',
+            top: 'center',
+            feature: {
+                dataView: {readOnly: false},
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        visualMap: {
+            min: min,
+            max: max,
+            text:['High','Low'],
+            realtime: false,
+            calculable: true,
+            inRange: {
+                color: ['lightskyblue','yellow', 'orangered']
+            }
+        },
+        series: [
+            {
+                name: '石家庄商铺区域分布',
+                type: 'map',
+                mapType: 'SJZ', // 自定义扩展图表类型
+                itemStyle:{
+                    normal:{label:{show:true}},
+                    emphasis:{label:{show:true}}
+                },
+                data:[
+                    {name: '栾城区', value: lcq},
+                    {name: '正定县', value: zdx},
+                    {name: '无极县', value: wjx},
+                    {name: '井陉县', value: jxx},
+                    {name: '鹿泉区', value: lqq},
+                    {name: '藁城区', value: scq},
+                    {name: '裕华区', value: yhq},
+                    {name: '长安区', value: caq},
+                    {name: '新华区', value: xhq},
+                    {name: '桥西区', value: qxq},
+                    {name: '井陉矿区', value: jxkq},
+                    {name: '元氏县', value: ysx},
+                    {name: '赵县', value: zx},
+                    {name: '赞皇县', value: zhx},
+                    {name: '高邑县', value: gyx},
+                    {name: '新乐市', value: xls},
+                    {name: '深泽县', value: szx},
+                    {name: '晋州市', value: jzs},
+                    {name: '辛集市', value: xjs},
+                    {name: '行唐县', value: xtx},
+                    {name: '灵寿县', value: lsx},
+                    {name: '平山县', value: psx},
+                ],
+                // 自定义名称映射
+                
+            }
+        ],
+        
+        roamController: {  
+        	//显示策略，默认为显示(true),可选为：true（显示） | false（隐藏）。  
+            show: true,  
+            //水平安放位置，默认为左侧('letf')，可选为：'center' | 'left' | 'right' | {number}（x坐标，单位px）  
+            x: 'right',  
+            //垂直安放位置，默认为全图顶端，可选为：'top' | 'bottom' | 'center' | {number}（y坐标，单位px）  
+            y: 'top',  
+            //必须，默认无(null),指定漫游组件可控地图类型，如：{ china: true }  
+            mapTypeControl: {  
+            //指定地图类型  
+            'china': true  
+            }  
+        },  
+    });
+});
+     
+        // 使用刚指定的配置项和数据显示图表。
+       mapChart.setOption(option);
+    </script>
+    <script type="text/javascript">
+    	function refreshTable(sign)
+    	{
+    		
+    		if(sign=='first')
+    		{
+    			url = "getAreaDis?table=shangpudata2&page=1";
+    		}
+    		if(sign=='last')
+    		{
+    			url="getAreaDis?table=shangpudata2&page=last";
+    		}
+    		if(sign=='previous')
+    		{
+    			page = page-1;
+    			if(page==0)
+    			{
+    				page=1;
+    			}
+    			url="getAreaDis?table=shangpudata2&page="+page;
+    		}
+    		if(sign=='next')
+    		{
+    			page = parseInt(page) + 1;
+    			if(parseInt(page)>parseInt(count))
+    			{
+    				page='last';
+    			}
+    			url="getAreaDis?table=shangpudata2&page="+page;
+    		}
+    		if(sign=='jump')
+    		{
+    			page = $("#page").val();
+    			if(parseInt(page)<1)
+    			{	page = 1;
+    			}
+    			if(parseInt(page)>parseInt(count))
+    			{
+    				pag='last';
+    			}
+    			url="getAreaDis?table=shangpudata2&page="+page;
+    		}
+    		$.cookie("url",url);
+    		window.location.href='index.html';
+    	}
+    </script>
+</body>
+
+</html>

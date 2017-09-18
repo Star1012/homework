@@ -1,0 +1,63 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/one_beijing"
+    tools:context="com.example.administrator.myapp.ContentFragment">
+
+    <LinearLayout
+        style="@style/attribute"
+        android:paddingTop="10dp">
+        <ImageView
+            android:id="@+id/iv_type_fengmian1"
+            android:layout_width="60dp"
+            android:layout_height="80dp" />
+        <LinearLayout
+            style="@style/attribute1">
+            <TextView
+                android:id="@+id/tv_type_name1"
+                style="@style/attribute2"/>
+            <TextView
+                android:id="@+id/tv_type_auth1"
+                style="@style/attribute3"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/attribute"
+        android:paddingTop="10dp">
+        <ImageView
+            android:id="@+id/iv_type_fengmian2"
+            android:layout_width="60dp"
+            android:layout_height="80dp" />
+        <LinearLayout
+            style="@style/attribute1">
+            <TextView
+                android:id="@+id/tv_type_name2"
+                style="@style/attribute2"/>
+            <TextView
+                android:id="@+id/tv_type_auth2"
+                style="@style/attribute3"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/attribute"
+        android:paddingTop="10dp">
+        <ImageView
+            android:id="@+id/iv_type_fengmian3"
+            android:layout_width="60dp"
+            android:layout_height="80dp" />
+        <LinearLayout
+            style="@style/attribute1">
+            <TextView
+                android:id="@+id/tv_type_name3"
+                style="@style/attribute2"/>
+            <TextView
+                android:id="@+id/tv_type_auth3"
+                style="@style/attribute3"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

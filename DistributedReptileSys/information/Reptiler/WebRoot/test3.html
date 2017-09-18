@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test3.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+  </head>
+  
+  <body>
+    <div class="container text-center">
+		<table>
+			<tr>
+				<td>当前页<%=%>
+				</td>
+				<td>共<%%>页
+				</td>
+				<td>
+					<!-- 当此时处于第一页时，‘上一页’与‘首页’不可点击 -->
+					<div class="btn btn-default" disabled="disabled">首页</div>
+					<div class="btn btn-default" disabled="disabled">上一页</div> <!-- 当此时不是第一页时 -->
+					<a href="" class="btn btn-default">首页</a> <a href=""
+					class="btn btn-default">上一页</a>
+				</td>
+				<td>
+					<!-- 当此时是最后一页时，‘尾页’与‘下一页’不可点击 -->
+					<div class="btn btn-default" disabled="disabled">尾页</div>
+					<div class="btn btn-default" disabled="disabled">下一页</div> <!-- 当此时不是最后一页时 -->
+					<a href="" class="btn btn-default">尾页</a> <a href=""
+					class="btn btn-default">下一页</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+  </body>
+</html>

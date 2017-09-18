@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Home</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- VENDOR CSS -->
+	<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
+	<link rel="stylesheet" href="assets/vendor/chartist/css/chartist-custom.css">
+	<!-- MAIN CSS -->
+	<link rel="stylesheet" href="assets/css/main.css">
+	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+	<link rel="stylesheet" href="assets/css/demo.css">
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<!-- ICONS -->
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
+	<script src="assets/scripts/echarts.min.js"></script>
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<!-- NAVBAR -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="brand">
+				<a href="index.html"><img src="assets/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>
+			</div>
+			<div class="container-fluid">
+				<div class="navbar-btn">
+					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+				</div>
+				<form class="navbar-form navbar-left">
+					<div class="input-group">
+						<input type="text" value="" class="form-control" placeholder="Search dashboard...">
+						<span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
+					</div>
+				</form>
+				<div class="navbar-btn navbar-btn-right">
+					<a class="btn btn-success update-pro" href="#downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
+				</div>
+				<div id="navbar-menu">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
+								<i class="lnr lnr-alarm"></i>
+								<span class="badge bg-danger">5</span>
+							</a>
+							<ul class="dropdown-menu notifications">
+								<li><a href="#" class="notification-item"><span class="dot bg-warning"></span>System space is almost full</a></li>
+								<li><a href="#" class="notification-item"><span class="dot bg-danger"></span>You have 9 unfinished tasks</a></li>
+								<li><a href="#" class="notification-item"><span class="dot bg-success"></span>Monthly report is available</a></li>
+								<li><a href="#" class="notification-item"><span class="dot bg-warning"></span>Weekly meeting in 1 hour</a></li>
+								<li><a href="#" class="notification-item"><span class="dot bg-success"></span>Your request has been approved</a></li>
+								<li><a href="#" class="more">See all notifications</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Basic Use</a></li>
+								<li><a href="#">Working With Data</a></li>
+								<li><a href="#">Security</a></li>
+								<li><a href="#">Troubleshooting</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/img/user.png" class="img-circle" alt="Avatar"> <span>Samuel</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+							<ul class="dropdown-menu">
+								<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
+								<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
+								<li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
+								<li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+							</ul>
+						</li>
+						<!-- <li>
+							<a class="update-pro" href="#downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
+						</li> -->
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- END NAVBAR -->
+		<!-- LEFT SIDEBAR -->
+		<div id="sidebar-nav" class="sidebar">
+			<div class="sidebar-scroll">
+				<nav>
+					<ul class="nav">
+						<li><a href="index.html" class="active"><i class="lnr lnr-home"></i> <span>房产信息</span></a></li>
+						<li><a href="elements.html" class=""><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
+						<li><a href="charts.html" class=""><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
+						<li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
+						<li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>
+						<li>
+							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPages" class="collapse ">
+								<ul class="nav">
+									<li><a href="page-profile.html" class="">Profile</a></li>
+									<li><a href="page-login.html" class="">Login</a></li>
+									<li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
+								</ul>
+							</div>
+						</li>
+						<li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
+						<li><a href="typography.html" class=""><i class="lnr lnr-text-format"></i> <span>Typography</span></a></li>
+						<li><a href="icons.html" class=""><i class="lnr lnr-linearicons"></i> <span>Icons</span></a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<!-- END LEFT SIDEBAR -->
+		<!-- MAIN -->
+		<div class="main">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+				<div class="container-fluid" id="body">
+					
+				</div>
+			</div>
+			<!-- END MAIN CONTENT -->
+		</div>
+		<!-- END MAIN -->
+		<div class="clearfix"></div>
+		<footer>
+			<div class="container-fluid">
+				<p class="copyright">Copyright &copy; 2017.青青草原不吃羊</p>
+			</div>
+		</footer>
+	</div>
+	<!-- END WRAPPER -->
+	<!-- Javascript -->
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+	<script src="assets/vendor/jquery-cookie/jquery.cookie.js"></script>
+	<script src="assets/vendor/chartist/js/chartist.min.js"></script>
+	<script src="assets/scripts/klorofil-common.js"></script>
+	<script type="text/javascript">
+		//获取url
+		var url = $.cookie("url");
+		$.cookie("url",null);
+		if(url==''|| url=='null')
+		{
+			url = "getGoods?table=saledetaildata2&page=1";
+		}
+		var page='';    //当前初始化为空
+       
+		//获取系统时间
+        var date = new Date();
+        var seperator = "-";
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var strDate = date.getDate();
+        if (month >= 1 && month <= 9) {
+            month = "0" + month;
+        }
+        if (strDate >= 0 && strDate <= 9) {
+            strDate = "0" + strDate;
+        }
+        var currentdate = year + seperator + month + seperator + strDate;
+        
+        //初始化变量
+        var  t=[];
+        var  div=[];
+        var type='';
+        var name='';
+        var href='';
+        var llcs='';
+        var xmrs='';
+        var jg='';
+        var qy='';
+        var lxr='';
+        var count='';
+     	$(document).ready(load);
+     	function load(){
+     		alert(url);
+     		$.ajax({
+     			type:"Post",
+     			async: false,
+             	url: url,
+                dataType: "json",
+             	success: function(json){
+             		$.each( json['type'], function(i,n){      			
+             			t.push(n);
+             			div.push("<div class=\"row\"><div class=\"col-md-14\"><div class=\"panel\"><div class=\"panel-heading\"><h3 class=\"panel-title\">"+t[i]+"</h3><div class=\"right\"><button type=\"button\" class=\"btn-toggle-collapse\"><i class=\"lnr lnr-chevron-up\"></i></button><button type=\"button\" class=\"btn-remove\"><i class=\"lnr lnr-cross\"></i></button></div></div><div class=\"panel-body\">");
+             		});
+             		$.each( json['good'], function(i,n){
+             			type = n.type!='undefined'?n.type:0;
+             			name = n.name!='undefined'?n.name:0;
+             			href = n.url!='undefined'?n.url:0;
+             			llcs = n.llcs!='undefined'?n.llcs:0;	
+ 						xmrs = n.xmrs!='undefined'?n.xmrs:0;	   
+ 						jg = n.xj!='undefined'?n.xj:0;	  
+ 						qy = n.qy!='undefined'?n.qy:0;
+ 						lxr = n.lxr!='undefined'?n.lxr:0;
+ 						
+ 						var len = t.length;
+ 						for(var k=0;k<len;k++)
+ 						{
+ 							if(type==t[k])
+ 							{
+ 							   div[k] = div[k] + ""
+ 							   break;
+ 							}
+ 						} 
+             			
+             		});
+             		//加上对应标签
+             		var len = t.length;
+ 					for(var k=0;k<len;k++)
+ 					{
+ 						div[k] = div[k]+"</div></div></div></div>";
+ 						$("#body").append(countnum);
+ 					} 
+             		
+                },
+     			error: function(){
+     				alert('fail');
+     			}
+     		});
+     	}
+     </script>
+     <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var mapChart = echarts.init(document.getElementById('mapChart'));
+		
+ 		//myChart.showLoading();
+       
+       $.get('assets/data/SJZ.json', function (geoJson) {
+       
+ 
+       mapChart.hideLoading();
+
+       echarts.registerMap('SJZ', geoJson);
+
+       mapChart.setOption(option = {
+        title: {
+            text: '石家庄商铺区域分布('+currentdate+')',
+            //subtext: currentdate
+            //sublink: 'http://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E8%A1%8C%E6%94%BF%E5%8D%80%E5%8A%83#cite_note-12'
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: '{b}<br/>{c} (家)'
+        },
+        toolbox: {
+            show: true,
+            orient: 'vertical',
+            left: 'right',
+            top: 'center',
+            feature: {
+                dataView: {readOnly: false},
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        visualMap: {
+            min: min,
+            max: max,
+            text:['High','Low'],
+            realtime: false,
+            calculable: true,
+            inRange: {
+                color: ['lightskyblue','yellow', 'orangered']
+            }
+        },
+        series: [
+            {
+                name: '石家庄商铺区域分布',
+                type: 'map',
+                mapType: 'SJZ', // 自定义扩展图表类型
+                itemStyle:{
+                    normal:{label:{show:true}},
+                    emphasis:{label:{show:true}}
+                },
+                data:[
+                    {name: '栾城区', value: lcq},
+                    {name: '正定县', value: zdx},
+                    {name: '无极县', value: wjx},
+                    {name: '井陉县', value: jxx},
+                    {name: '鹿泉区', value: lqq},
+                    {name: '藁城区', value: scq},
+                    {name: '裕华区', value: yhq},
+                    {name: '长安区', value: caq},
+                    {name: '新华区', value: xhq},
+                    {name: '桥西区', value: qxq},
+                    {name: '井陉矿区', value: jxkq},
+                    {name: '元氏县', value: ysx},
+                    {name: '赵县', value: zx},
+                    {name: '赞皇县', value: zhx},
+                    {name: '高邑县', value: gyx},
+                    {name: '新乐市', value: xls},
+                    {name: '深泽县', value: szx},
+                    {name: '晋州市', value: jzs},
+                    {name: '辛集市', value: xjs},
+                    {name: '行唐县', value: xtx},
+                    {name: '灵寿县', value: lsx},
+                    {name: '平山县', value: psx},
+                ],
+                // 自定义名称映射
+                
+            }
+        ],
+        
+        roamController: {  
+        	//显示策略，默认为显示(true),可选为：true（显示） | false（隐藏）。  
+            show: true,  
+            //水平安放位置，默认为左侧('letf')，可选为：'center' | 'left' | 'right' | {number}（x坐标，单位px）  
+            x: 'right',  
+            //垂直安放位置，默认为全图顶端，可选为：'top' | 'bottom' | 'center' | {number}（y坐标，单位px）  
+            y: 'top',  
+            //必须，默认无(null),指定漫游组件可控地图类型，如：{ china: true }  
+            mapTypeControl: {  
+            //指定地图类型  
+            'china': true  
+            }  
+        },  
+    });
+});
+     
+        // 使用刚指定的配置项和数据显示图表。
+       mapChart.setOption(option);
+    </script>
+    <script type="text/javascript">
+    	function refreshTable(sign)
+    	{
+    		
+    		if(sign=='first')
+    		{
+    			url = "getAreaDis?table=shangpudata&page=1";
+    		}
+    		if(sign=='last')
+    		{
+    			url="getAreaDis?table=shangpudata&page=last";
+    		}
+    		if(sign=='previous')
+    		{
+    			page = page-1;
+    			if(page==0)
+    			{
+    				page=1;
+    			}
+    			url="getAreaDis?table=shangpudata&page="+page;
+    		}
+    		if(sign=='next')
+    		{
+    			page = parseInt(page) + 1;
+    			if(parseInt(page)>parseInt(count))
+    			{
+    				page='last';
+    			}
+    			url="getAreaDis?table=shangpudata&page="+page;
+    		}
+    		if(sign=='jump')
+    		{
+    			page = $("#page").val();
+    			if(parseInt(page)<1)
+    			{	page = 1;
+    			}
+    			if(parseInt(page)>parseInt(count))
+    			{
+    				pag='last';
+    			}
+    			url="getAreaDis?table=shangpudata&page="+page;
+    		}
+    		$.cookie("url",url);
+    		window.location.href='index.html';
+    	}
+    </script>
+</body>
+
+</html>

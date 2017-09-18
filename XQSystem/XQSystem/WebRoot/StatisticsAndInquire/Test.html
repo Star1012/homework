@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  <script type="text/javascript">
+  	function SetWinHeight(obj) 
+	{ 
+		var win=document.getElementById(obj); 
+		if (document.getElementById) 
+		{ 
+			if (win && !window.opera) 
+			{ 
+				if (win.contentDocument && win.contentDocument.body.offsetHeight) 
+					win.height = win.contentDocument.body.offsetHeight; 
+				else if(win.Document && win.Document.body.scrollHeight) 
+					win.height = win.Document.body.scrollHeight; 
+			} 	
+		} 
+	} 
+  </script>
+  </head>
+  
+  <body>
+    <div class="search_condition">
+    	<IFRAME scrolling="no" width="100%" height="100%" frameBorder=0 id="win" name="win" onload="Javascript:SetWinHeight('win')" src="zhjs.jsp" allowTransparency="true">
+        </IFRAME>
+    </div>
+    <div class="search_result">
+    	<IFRAME scrolling="yes" width="100%" height="100%" frameBorder=0 id=frmfoot name=frmfoot onload="Javascript:SetWinHeight('frmfoot')" src="SearchResult.jsp" allowTransparency="true">
+        </IFRAME>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!-- Add packages here -->
+    <constant name="struts.devMode" value="false" />
+    <constant name="struts.i18n.encoding" value="utf-8" />
+	<package name="usersmanage" namespace="/" extends="struts-default">
+		<action name="usersCreate" class="usersAction" method="Create">
+			<result name="success">/login.jsp</result>
+			<result name="failed">/registe.jsp</result>
+		</action>
+		<action name="usersLogin" class="usersAction" method="Logining">
+			<result name="success">/index.jsp</result>
+			<result name="failed">/login.jsp</result>
+		</action>
+		<action name="usersUpdate" class="usersAction" method="Update">
+			<result name="success">/login.jsp</result>
+		</action>
+		<action name="usersDelete" class="usersAction" method="Delete">
+			<result name="success">/login.jsp</result>
+		</action>
+	</package>
+	
+	<package name="activitymanage" namespace="/" extends="struts-default">
+		<action name="activityCreate" class="activityAction" method="Create">
+			<result name="success">/index.jsp</result>
+			<result name="failed">/activity.jsp</result>
+		</action>
+		<action name="activityUpdate" class="activityAction" method="Update">
+			<result name="success">/index.jsp</result>
+		</action>
+		<action name="activityRetrievew" class="activityAction" method="Retrievew">
+			<result name="success">/activitychecklook.jsp</result>
+		</action>
+		<action  name="activityRetrievet" class="activityAction" method="Retrievet">
+			<result name="success">/activitylook.jsp</result>
+		</action>
+		<action  name="activityRetrieveb" class="activityAction" method="Retrieveb">
+			<result name="success">/activityundo.jsp</result>
+		</action>
+		<action name="activityTrans" class="activityAction" method="ViewTrans">
+			<result name="success">/actioncheckdo.jsp</result>
+		</action>
+		<action name="activityTran" class="activityAction" method="AcTrans">
+			<result name="success">/activitycomment.jsp</result>
+		</action>
+		<action name="activityEnd" class="activityAction" method="EndTrans">
+			<result name="success">/activityend.jsp</result>
+		</action>
+		<action name="activityUn" class="activityAction" method="UnTrans">
+			<result name="success">/activityupdate.jsp</result>
+		</action>
+	</package>
+	
+	<package name="commentmanage" namespace="/" extends="struts-default">
+		<action name="commentCreate" class="commentAction" method="Create">
+			<result name="success">/comment.jsp</result>
+		</action>
+		<action name="commentUpdate" class="commentAction" method="Update">
+			<result name="success">/comment.jsp</result>
+		</action>
+	</package>
+</struts>

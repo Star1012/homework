@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="ClubManageSys"
+  id="myeclipse.1496629581487"
+  context-root="/ClubManageSys"
+  j2ee-spec="6.0"
+  archive="ClubManageSys.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

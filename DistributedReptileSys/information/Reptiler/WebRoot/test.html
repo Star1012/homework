@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+    <script src="assets/scripts/echarts.min.js"></script>
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+  </head>
+ 
+  <body>
+    <div id="myChart" style="width: 600px;height:615px;"></div>
+     <script type="text/javascript">
+ 		var lcq='';     //栾城区
+ 		var zdx='';	   //正定县
+ 		var wjx='';	   //无极县
+ 		var jxx='';	   //井陉县
+ 		var lqq='';	   //鹿泉区
+ 		var scq='';	   //藁城区
+ 		var yhq='';	   //裕华区
+ 		var caq='';	   //长安区
+ 		var xhq='';	   //新华区
+ 		var qxq='';	   //桥西区
+ 		var jxkq='';   //井陉矿区
+ 		var ysx='';	   //元氏县
+ 		var zx='';     //赵县
+ 		var zhx='';    //赞皇县
+ 		var xls='';	   //新乐市
+ 		var szx='';	   //深泽县
+ 		var jzs='';    //晋州市
+ 		var xjs='';	   //辛集市
+        var xtx='';	   //行唐县
+        var lsx='';    //灵寿县
+        var psx='';	   //平山县
+        var gyx='';	   //高邑县
+        var min='';
+        var max='';
+        var date = new Date();
+        var seperator = "-";
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var strDate = date.getDate();
+        if (month >= 1 && month <= 9) {
+            month = "0" + month;
+        }
+        if (strDate >= 0 && strDate <= 9) {
+            strDate = "0" + strDate;
+        }
+        var currentdate = year + seperator + month + seperator + strDate;
+     	$(document).ready(function(){
+     		$.ajax({
+     			type:"Post",
+     			async: false,
+             	url: "getAreaDis?table=shangpudata",
+                dataType: "json",
+             	success: function(json){
+             		var obj = eval(json);
+             		lcq = obj.lcq!='undefined'?obj.lcq:0;
+             		zdx = obj.zdx!='undefined'?obj.zdx:0;
+             		wjx = obj.wjx!='undefined'?obj.wjx:0;
+             		jxx = obj.jxx!='undefined'?obj.jxx:0;	
+ 					lqq	= obj.lqq!='undefined'?obj.lqq:0;	   
+ 					scq = obj.scq!='undefined'?obj.scq:0;	  
+ 					yhq = obj.yhq!='undefined'?obj.yhq:0;
+ 					caq = obj.caq!='undefined'?obj.caq:0;
+ 					xhq = obj.xhq!='undefined'?obj.xhq:0;
+ 					qxq = obj.qxq!='undefined'?obj.qxq:0;
+ 					jxkq = obj.jxkq!='undefined'?obj.jxkq:0;
+ 					ysx = obj.ysx!='undefined'?obj.ysx:0;
+ 					zx = obj.zx!='undefined'?obj.zx:0; 
+ 					zhx = obj.zhx!='undefined'?obj.zhx:0;
+ 					xls = obj.xls!='undefined'?obj.xls:0;
+ 					szx = obj.szx!='undefined'?obj.szx:0;
+ 					jzs = obj.jzs!='undefined'?obj.jzs:0; 
+ 					xjs = obj.xjs!='undefined'?obj.xjs:0;
+        			xtx = obj.xtx!='undefined'?obj.xtx:0;	  
+        			lsx = obj.lsx!='undefined'?obj.lsx:0;    
+        			psx = obj.psx!='undefined'?obj.psx:0;
+        			gyx = obj.gyx!='undefined'?obj.gyx:0;
+        			min = obj.min!='undefined'?obj.min:0;
+        			max = obj.max!='undefined'?obj.max:0;	   
+             		alert(lcq);
+             	},
+     			error: function(){
+     				alert('fail');
+     			}
+     		});
+     	});
+     </script>
+     <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('myChart'));
+		
+ 		//myChart.showLoading();
+       
+       $.get('assets/data/SJZ.json', function (geoJson) {
+       alert('aaa');
+ 
+       myChart.hideLoading();
+
+       echarts.registerMap('SJZ', geoJson);
+
+       myChart.setOption(option = {
+        title: {
+            text: '石家庄商铺区域分布('+currentdate+')',
+            //subtext: currentdate
+            //sublink: 'http://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E8%A1%8C%E6%94%BF%E5%8D%80%E5%8A%83#cite_note-12'
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: '{b}<br/>{c} (家)'
+        },
+        toolbox: {
+            show: true,
+            orient: 'vertical',
+            left: 'right',
+            top: 'center',
+            feature: {
+                dataView: {readOnly: false},
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        visualMap: {
+            min: min,
+            max: max,
+            text:['High','Low'],
+            realtime: false,
+            calculable: true,
+            inRange: {
+                color: ['lightskyblue','yellow', 'orangered']
+            }
+        },
+        series: [
+            {
+                name: '石家庄商铺区域分布',
+                type: 'map',
+                mapType: 'SJZ', // 自定义扩展图表类型
+                itemStyle:{
+                    normal:{label:{show:true}},
+                    emphasis:{label:{show:true}}
+                },
+                data:[
+                    {name: '栾城区', value: lcq},
+                    {name: '正定县', value: zdx},
+                    {name: '无极县', value: wjx},
+                    {name: '井陉县', value: jxx},
+                    {name: '鹿泉区', value: lqq},
+                    {name: '藁城区', value: scq},
+                    {name: '裕华区', value: yhq},
+                    {name: '长安区', value: caq},
+                    {name: '新华区', value: xhq},
+                    {name: '桥西区', value: qxq},
+                    {name: '井陉矿区', value: jxkq},
+                    {name: '元氏县', value: ysx},
+                    {name: '赵县', value: zx},
+                    {name: '赞皇县', value: zhx},
+                    {name: '高邑县', value: gyx},
+                    {name: '新乐市', value: xls},
+                    {name: '深泽县', value: szx},
+                    {name: '晋州市', value: jzs},
+                    {name: '辛集市', value: xjs},
+                    {name: '行唐县', value: xtx},
+                    {name: '灵寿县', value: lsx},
+                    {name: '平山县', value: psx},
+                ],
+                // 自定义名称映射
+                
+            }
+        ],
+        
+        roamController: {  
+        	//显示策略，默认为显示(true),可选为：true（显示） | false（隐藏）。  
+            show: true,  
+            //水平安放位置，默认为左侧('letf')，可选为：'center' | 'left' | 'right' | {number}（x坐标，单位px）  
+            x: 'right',  
+            //垂直安放位置，默认为全图顶端，可选为：'top' | 'bottom' | 'center' | {number}（y坐标，单位px）  
+            y: 'top',  
+            //必须，默认无(null),指定漫游组件可控地图类型，如：{ china: true }  
+            mapTypeControl: {  
+            //指定地图类型  
+            'china': true  
+            }  
+        },  
+    });
+});
+     
+        // 使用刚指定的配置项和数据显示图表。
+       myChart.setOption(option);
+    </script>
+  </body>
+</html>

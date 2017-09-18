@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Home</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- VENDOR CSS -->
+	<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
+	<link rel="stylesheet" href="assets/vendor/chartist/css/chartist-custom.css">
+	<!-- MAIN CSS -->
+	<link rel="stylesheet" href="assets/css/main.css">
+	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+	<link rel="stylesheet" href="assets/css/demo.css">
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<!-- ICONS -->
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
+	<script src="assets/scripts/echarts.min.js"></script>
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<!-- NAVBAR -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="brand">
+				<a href="index.html"><img src="assets/img/logo.png" alt="Klorofil Logo" class="img-responsive logo"></a>
+			</div>
+			<div class="container-fluid">
+				<div class="navbar-btn">
+					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+				</div>
+				<form class="navbar-form navbar-left">
+					<div class="input-group">
+						
+					</div>
+				</form>
+				<div class="navbar-btn navbar-btn-right">
+					
+				</div>
+				<div id="navbar-menu">
+					<h1>Reptiler免费爬虫平台</h1>
+				</div>
+			</div>
+		</nav>
+		<!-- END NAVBAR -->
+		<!-- LEFT SIDEBAR -->
+		<div id="sidebar-nav" class="sidebar">
+			<div class="sidebar-scroll">
+				<nav>
+					<ul class="nav">
+						<li><a href="index.html" class=""><i class="lnr lnr-home"></i> <span>房产信息</span></a></li>
+						<li><a href="#" class="active"><i class="lnr lnr-cart"></i> <span>二手市场</span></a></li>
+						<li><a href="detail.html" class=""><i class="fa fa-line-chart"></i> <span>商品统计</span></a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<!-- END LEFT SIDEBAR -->
+		<!-- MAIN -->
+		<div class="main">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+				<div class="container-fluid">
+					<!-- OVERVIEW -->
+					<div class="panel panel-headline">
+						<div class="panel-heading">
+							<h3 class="panel-title"></h3>
+						</div>
+						<div class="panel-body">
+							<div class="row" id="header">
+							</div>
+							<div class="row">
+								<div class="col-md-9">
+									<div id="mapChart" style="width: 1000px;height:800px;"></div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- END MAIN CONTENT -->
+		</div>
+		<!-- END MAIN -->
+		<div class="clearfix"></div>
+		<footer>
+			<div class="container-fluid">
+				<p class="copyright">Copyright &copy; 2017.青青草原不吃羊</p>
+			</div>
+		</footer>
+	</div>
+	<!-- END WRAPPER -->
+	<!-- Javascript -->
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+	<script src="assets/vendor/jquery-cookie/jquery.cookie.js"></script>
+	<script src="assets/vendor/chartist/js/chartist.min.js"></script>
+	<script src="assets/scripts/klorofil-common.js"></script>
+	<script type="text/javascript">
+		//获取url
+		var url = url = "getGoods?table=saledetaildata2";
+		var type=[];
+		var count=[];
+		var content='';
+		var legenddata='[';
+		var xdata='[';
+		var series='[';
+		
+		
+		//获取系统时间
+        var date = new Date();
+        var seperator = "-";
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var strDate = date.getDate();
+        if (month >= 1 && month <= 9) {
+            month = "0" + month;
+        }
+        if (strDate >= 0 && strDate <= 9) {
+            strDate = "0" + strDate;
+        }
+        var currentdate = year + seperator + month + seperator + strDate;
+        
+     	$(document).ready(load);
+     		function load(){
+     		alert(url);
+     		$.ajax({
+     			type:"Post",
+     			async: false,
+             	url: url,
+                dataType: "json",
+             	success: function(json){
+             		$.each( json['type'], function(i,n){  
+             			type.push(n);
+             			if(i==0)
+             			{
+             				legenddata = legenddata +"'"+n+"'";
+             			}
+             			else
+             			{
+             				legenddata +=",'" + n +"'";
+             			}
+             		});
+             		legenddata +="]";
+             		alert(legenddata);
+             		$.each( json['count'], function(i,n){
+             			count.push(n);
+             		});
+             		var len = type.length;
+             		for(var i=0;i<len;i++)
+             		{
+             			content = content+"<a href=\"detail.html?type='"+escape(type[i])+"'\"><div class=\"col-md-3\"><div class=\"metric\"><span class=\"icon\"><i class=\"fa fa-shopping-bag\"></i></span><p><span class=\"number\">"
+             			+count[i]+"</span><span class=\"title\">"
+             			+type[i]+"</span></p></div></div></a>";
+             		}
+             		$("#header").append(content);
+             		//获取区域
+             		$.each( json['area'], function(i,n){
+             			if(i==0)
+             			{
+             				xdata = xdata +"'"+n+"'";
+             			}
+             			else
+             			{
+             				xdata +=",'" + n +"'";
+             			}
+             		});
+             		xdata +="]";
+             		alert(xdata);
+             		$.each( json['num'], function(i,n){
+             			if(i==0)
+             			{
+             				series = series +"{ name:'"+type[i]+"',type:'bar',data:["+n+"]}";
+             			}
+             			else
+             			{
+             				series +=",{ name:'"+type[i]+"',type:'bar',data:["+n+"]}";
+             			}
+             		});
+             		series +="]";
+             		alert(series);
+                },
+     			error: function(){
+     				alert('fail');
+     			}
+     		});
+     	}
+     </script>
+     <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var mapChart = echarts.init(document.getElementById('mapChart'));
+     	option = {
+     	title:{
+     		text:'石家庄二手商品区域分布('+currentdate+')'
+     	},
+    	tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    legend: {
+        data:legenddata
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'category',
+            data : ['桥西','裕华','石家庄周边','开发区','长安','桥东','新华','鹿泉','正定','栾城','藁城','井陉矿区']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [{ name:'二手手机 ',type:'bar',data:[173, 108, 133, 50, 101, 48, 114, 57, 26, 26, 18, 0]},{ name:'二手摩托车 ',type:'bar',data:[77, 86, 408, 39, 99, 33, 57, 40, 45, 32, 69, 5]},{ name:'自行车 ',type:'bar',data:[106, 103, 35, 25, 90, 46, 90, 12, 3, 6, 7, 14]},{ name:'二手电脑 ',type:'bar',data:[176, 145, 96, 34, 143, 74, 117, 22, 26, 7, 18, 1]},{ name:'数码产品 ',type:'bar',data:[5, 6, 4, 2, 5, 8, 6, 1, 0, 3, 1, 0]},{ name:'二手家电 ',type:'bar',data:[160, 123, 49, 35, 97, 46, 95, 15, 7, 18, 6, 0]},{ name:'二手家具 ',type:'bar',data:[109, 139, 56, 22, 108, 58, 139, 7, 17, 18, 2, 1]},{ name:'母婴玩具 ',type:'bar',data:[231, 153, 92, 51, 138, 56, 174, 28, 16, 16, 26, 1]},{ name:'服装箱包 ',type:'bar',data:[57, 36, 34, 10, 40, 20, 32, 5, 5, 11, 7, 0]},{ name:'美容保健 ',type:'bar',data:[12, 24, 2, 16, 10, 3, 5, 0, 1, 0, 0, 0]},{ name:'图书音像 ',type:'bar',data:[308, 148, 74, 57, 132, 34, 138, 18, 15, 3, 16, 3]},{ name:'文体户外 ',type:'bar',data:[200, 121, 94, 52, 114, 56, 82, 17, 12, 12, 17, 1]}]
+};
+     	
+        // 使用刚指定的配置项和数据显示图表。
+       mapChart.setOption(option);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+  <package name="login" namespace="/WebUI" extends="struts-default">
+    <action name="login" class="com.struts.action.LoginAction">	
+      	<result name="success">main.html</result>
+      	<result name="error">login.html</result>
+    </action>
+  </package>
+  <package name="OrgInstitution" namespace="/OrgInstitution" extends="struts-default">
+    <action name="register" class="com.struts.action.RegisterAction">	
+      	<result name="success" type="redirect">../WebUI/login.html</result>	
+     	 <result name="error">GetInformation.jsp</result>
+    </action>
+    <action name="setSubandNae" class="com.struts.action.SetSubandNaeAction">	
+     	 <result name="success">CreateDemand.jsp</result>
+    </action>
+    <action name="createDemand" class="com.struts.action.AddandSaveDemandAction">	
+      	<result name="success">../WebUI/index.html</result>	
+      	<result name="error">CreateDemand.jsp</result>
+    </action>
+    <action name="demandManage" class="com.struts.action.ShowDemandList">
+      	<result name="success">DemandManage.jsp</result>
+    </action>
+    <action name="updateManage" class="com.struts.action.ShowDemandList">
+    	<result name="success">showUpdateList.jsp</result>
+    </action>
+    <action name="demandShow" class="com.struts.action.ShowUpdateDemand">
+    	<result name="success">showUpdateDemand.jsp</result>
+    </action>
+    <action name="updateDemand" class="com.struts.action.DemandUpdate"> 
+    	<result name="success">../WebUI/index.html</result>
+    	<result name="error">showUpdateDemand.jsp</result>
+    </action>
+  </package>
+  <package name="FormAudit" namespace="/FormAudit" extends="struts-default">
+  	<action name="formAuditManage" class="com.struts.action.ShowDemandList">
+  		<result name="success">showSubmitDemand.jsp</result>
+  	</action>
+  	<action name="demandShow" class="com.struts.action.ShowDemandDetail">
+  		<result name="success">formAudit.jsp</result>
+  	</action>
+  	<action name="saveAudit" class="com.struts.action.SaveAudit">
+  		<result name="success">../WebUI/index.html</result>
+  	</action>
+  </package>
+  <package name="DepartAudit" namespace="/DepartAudit" extends="struts-default">
+  	<action name="departAuditManage" class="com.struts.action.ShowDemandList">
+  		<result name="success">showFormedDemand.jsp</result>
+  	</action>
+  	<action name="demandShow" class="com.struts.action.ShowDemandDetail">
+  		<result name="success">departAudit.jsp</result>
+  	</action>
+  	<action name="saveAudit" class="com.struts.action.SaveAudit">
+  		<result name="success">../WebUI/index.html</result>
+  	</action>
+  </package>
+  <package name="StatisticsAndInquire" namespace="/StatisticsAndInquire" extends="struts-default">
+  	<action name="searchDemand" class="com.struts.action.SearchDemand">
+  		<result name="success">SearchResult.jsp</result>
+  	</action>
+  	<action name="Comprehensiveindex" class="com.struts.action.Comprehensiveindex">
+  		<result name="success">SearchResult.jsp</result>
+  	</action>
+  </package>
+  <package name="SystemManage" namespace="/SystemManage" extends="struts-default">
+  	<action name="roleManage" class="com.struts.action.RoleDemand">
+  		<result name="success">RoleBroswer.jsp</result>
+  	</action>
+  	<action name="addRole" class="com.struts.action.AddRole">
+  		<result type="chain">roleManage</result>
+  		<result name="error">SetNewRole.jsp</result>
+  	</action>
+  	<action name="deleteRoles" class="com.struts.action.DeleteRoles">
+  		<result type="chain">roleManage</result>
+  	</action>
+  	<action name="getPermission" class="com.struts.action.ShowRoleDetail" method="getPermission">
+  		<interceptor-ref name="defaultStack" />
+  	</action>
+  </package>
+</struts>    
